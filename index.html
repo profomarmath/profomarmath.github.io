@@ -1,313 +1,1306 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mohamed Omar — Academic</title>
-  <meta name="description" content="Academic page of Mohamed Omar: research, publications, awards, and theses." />
-
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mohamed Omar — Professor of Mathematics at York University. Research in combinatorics, discrete mathematics, and polynomial methods.">
+  <meta name="theme-color" content="#2aa9b7">
+  <title>Mohamed Omar — Mathematics at York University</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&amp;display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg: #ffffff;
-      --fg: #1b1f24;
-      --muted:#59636e;
-      --link:#0b57d0;
-      --border:#e9edf1;
-      --chip:#f5f7fa;
-      --card:#ffffff;
+    :root {
+      --aqua: #2aa9b7;
+      --aqua-bright: #73d1d9;
+      --aqua-deep: #0b6f79;
+      --aqua-dark: #0a4b52;
+      --aqua-wash: #dff3f5;
+      --ink: #102d2b;
+      --ink-soft: #47615e;
+      --paper: #fbfcf9;
+      --white: #ffffff;
+      --line: #c8ddd8;
+      --line-soft: #e2ece8;
+      --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+      --sans: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --shadow: 0 24px 70px rgba(10, 75, 82, 0.12);
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --page: min(1180px, calc(100% - 40px));
     }
-    @media (prefers-color-scheme: dark){
-      :root{
-        --bg:#0f141a;
-        --fg:#e6edf3;
-        --muted:#9aa7b2;
-        --link:#8ab4f8;
-        --border:#26303a;
-        --chip:#171e26;
-        --card:#111821;
-      }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 92px;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--fg);font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
-    .wrap{max-width:980px;margin:0 auto;padding:28px 20px 60px}
-    header{padding:6px 0 10px}
-    h1{font-size:2rem;letter-spacing:.2px;margin:0 0 6px}
-    .subtitle{color:var(--muted);margin:0 0 16px}
-    .chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 22px}
-    .chip{display:inline-block;padding:8px 12px;border-radius:999px;background:var(--chip);border:1px solid var(--border);font-size:.9rem}
-    .btns{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 26px}
-    .btn{display:inline-block;text-decoration:none;border:1px solid var(--border);padding:10px 14px;border-radius:10px;background:var(--card);color:var(--fg);font-weight:600}
-    .btn:hover{border-color:var(--link);color:var(--link)}
-    hr{border:0;border-top:1px solid var(--border);margin:24px 0}
-    h2{font-size:1.4rem;margin:20px 0 8px}
-    ul{padding-left:1.2rem;margin:8px 0 18px}
-    li{margin:8px 0}
-    a{color:var(--link)}
-    .section{padding:10px 0}
-    .lead{margin-top:8px}
-    .foot{margin-top:40px;color:var(--muted);font-size:.9rem}
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.7;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(11, 111, 121, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(11, 111, 121, 0.035) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, black 0, transparent 760px);
+    }
+
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    ::selection {
+      color: var(--ink);
+      background: var(--aqua-bright);
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 1000;
+      padding: 10px 15px;
+      color: var(--white);
+      background: var(--ink);
+      border-radius: 8px;
+      transform: translateY(-150%);
+      transition: transform 180ms ease;
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    .sr-only {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1001;
+      width: 0;
+      height: 4px;
+      background: var(--aqua);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-top: 5px solid var(--aqua);
+      border-bottom: 1px solid rgba(16, 45, 43, 0.1);
+      background: rgba(251, 252, 249, 0.9);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .nav-shell {
+      width: var(--page);
+      min-height: 72px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      margin-right: auto;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      color: var(--ink);
+      background: var(--aqua);
+      border-radius: 10px 10px 10px 2px;
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .site-nav a {
+      color: var(--ink-soft);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 160ms ease;
+    }
+
+    .site-nav a:hover,
+    .site-nav a:focus-visible { color: var(--aqua-deep); }
+
+    .header-cv {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      padding: 9px 15px;
+      color: var(--white);
+      background: var(--ink);
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      transition: transform 160ms ease, background 160ms ease;
+    }
+
+    .header-cv:hover,
+    .header-cv:focus-visible {
+      color: var(--ink);
+      background: var(--aqua);
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(62px, 7vw, 96px) 0 76px;
+      background:
+        radial-gradient(circle at 84% 16%, rgba(115, 209, 217, 0.42), transparent 25%),
+        linear-gradient(135deg, #f6fbf8 0%, #eefaf6 52%, #dff8f2 100%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 540px;
+      height: 540px;
+      right: -260px;
+      top: -235px;
+      border: 1px solid rgba(11, 111, 121, 0.18);
+      border-radius: 50%;
+      box-shadow: 0 0 0 72px rgba(42, 169, 183, 0.05), 0 0 0 144px rgba(42, 169, 183, 0.035);
+    }
+
+    .hero-shell {
+      position: relative;
+      width: var(--page);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.7fr);
+      align-items: center;
+      gap: clamp(44px, 6vw, 76px);
+    }
+
+    .eyebrow,
+    .section-kicker {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 18px;
+      color: var(--aqua-deep);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before,
+    .section-kicker::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: currentColor;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 760px;
+      margin-bottom: 20px;
+      font-family: var(--serif);
+      font-size: clamp(46px, 5.9vw, 72px);
+      font-weight: 600;
+      line-height: 0.92;
+      letter-spacing: -0.055em;
+    }
+
+    .hero-title {
+      max-width: 680px;
+      margin-bottom: 27px;
+      color: var(--ink-soft);
+      font-family: var(--serif);
+      font-size: clamp(18px, 1.8vw, 23px);
+      line-height: 1.38;
+    }
+
+    .research-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin: 0 0 32px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .research-tags li {
+      padding: 7px 12px;
+      color: var(--aqua-dark);
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(11, 111, 121, 0.22);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 49px;
+      padding: 0 20px;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    .button-primary {
+      color: var(--white);
+      background: var(--ink);
+      box-shadow: 0 10px 25px rgba(10, 75, 82, 0.18);
+    }
+
+    .button-secondary { background: rgba(255, 255, 255, 0.72); }
+
+    .button:hover,
+    .button:focus-visible {
+      color: var(--ink);
+      background: var(--aqua);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(10, 75, 82, 0.16);
+    }
+
+    .portrait-wrap {
+      position: relative;
+      justify-self: end;
+      width: min(100%, 320px);
+    }
+
+    .portrait-wrap::before {
+      content: "";
+      position: absolute;
+      inset: -18px 22px 22px -18px;
+      z-index: 0;
+      background: var(--aqua);
+      border-radius: 34px 34px 34px 8px;
+      transform: rotate(-2.5deg);
+    }
+
+    .portrait-card {
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      margin: 0;
+      background: var(--white);
+      border: 8px solid var(--white);
+      border-radius: 30px 30px 30px 7px;
+      box-shadow: var(--shadow);
+    }
+
+    .portrait-card img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1 / 1.02;
+      object-fit: cover;
+      object-position: center 20%;
+      border-radius: 21px 21px 10px 3px;
+    }
+
+    .portrait-card figcaption {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 15px 10px 8px;
+      color: var(--ink-soft);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .portrait-card figcaption strong {
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .content-section {
+      width: var(--page);
+      margin: 0 auto;
+      padding: clamp(64px, 7vw, 96px) 0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.55fr) minmax(280px, 0.75fr);
+      gap: clamp(46px, 8vw, 110px);
+      align-items: start;
+    }
+
+    .section-heading {
+      margin-bottom: 24px;
+      font-family: var(--serif);
+      font-size: clamp(32px, 4vw, 49px);
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -0.035em;
+    }
+
+    .intro-copy {
+      max-width: 790px;
+      color: var(--ink-soft);
+      font-family: var(--serif);
+      font-size: clamp(17px, 1.55vw, 20px);
+      line-height: 1.7;
+    }
+
+    .intro-copy a,
+    .publication-card a,
+    .work-card a,
+    .award-card a {
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+      text-decoration-color: var(--aqua-deep);
+    }
+
+    .intro-copy a:hover,
+    .intro-copy a:focus-visible,
+    .publication-card a:hover,
+    .publication-card a:focus-visible,
+    .work-card a:hover,
+    .work-card a:focus-visible,
+    .award-card a:hover,
+    .award-card a:focus-visible { color: var(--aqua-deep); }
+
+    .research-note {
+      position: relative;
+      padding: 32px;
+      color: var(--white);
+      background: var(--ink);
+      border-radius: 6px var(--radius-lg) var(--radius-lg) var(--radius-lg);
+      box-shadow: var(--shadow);
+    }
+
+    .research-note::before {
+      content: "∑";
+      position: absolute;
+      top: -26px;
+      right: 22px;
+      color: var(--aqua);
+      font-family: var(--serif);
+      font-size: 94px;
+      font-weight: 600;
+      line-height: 1;
+      opacity: 0.2;
+    }
+
+    .research-note .label {
+      display: block;
+      margin-bottom: 20px;
+      color: var(--aqua);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .research-note p {
+      position: relative;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 20px;
+      line-height: 1.48;
+    }
+
+    .awards-band {
+      position: relative;
+      overflow: hidden;
+      color: var(--white);
+      background: var(--aqua-dark);
+    }
+
+    .awards-band::after {
+      content: "";
+      position: absolute;
+      right: -70px;
+      bottom: -190px;
+      width: 520px;
+      height: 520px;
+      border: 1px solid rgba(115, 209, 217, 0.2);
+      border-radius: 50%;
+      box-shadow: 0 0 0 72px rgba(115, 209, 217, 0.05), 0 0 0 144px rgba(115, 209, 217, 0.035);
+    }
+
+    .awards-band .content-section { position: relative; z-index: 1; }
+    .awards-band .section-kicker { color: var(--aqua-bright); }
+
+    .awards-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 48px;
+    }
+
+    .awards-header .section-heading { margin: 0; max-width: 620px; }
+
+    .award-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .award-card {
+      position: relative;
+      min-height: 270px;
+      padding: 28px 24px 30px;
+      border-right: 1px solid rgba(255, 255, 255, 0.2);
+      transition: color 180ms ease, background 180ms ease;
+    }
+
+    .award-card:last-child { border-right: 0; }
+
+    .award-card:hover {
+      color: var(--ink);
+      background: var(--aqua);
+    }
+
+    .award-card h3 {
+      margin: 64px 0 12px;
+      font-family: var(--serif);
+      font-size: 21px;
+      font-weight: 600;
+      line-height: 1.13;
+    }
+
+    .award-card a { text-decoration-color: currentColor; }
+
+    .award-card p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    .award-card:hover p { color: rgba(16, 45, 43, 0.74); }
+
+    .archive-section { padding-bottom: 104px; }
+
+    .archive-header {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.7fr) minmax(360px, 1.3fr);
+      align-items: end;
+      gap: 60px;
+      margin-bottom: 40px;
+    }
+
+    .archive-header .section-heading { margin-bottom: 0; }
+
+    .search-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-wrap::before {
+      content: "⌕";
+      position: absolute;
+      left: 18px;
+      color: var(--aqua-deep);
+      font-family: var(--serif);
+      font-size: 24px;
+      pointer-events: none;
+    }
+
+    #publication-search {
+      width: 100%;
+      height: 56px;
+      padding: 0 24px 0 49px;
+      color: var(--ink);
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      outline: none;
+      font: 500 14px/1 var(--sans);
+      transition: border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    #publication-search::placeholder { color: #728984; }
+
+    #publication-search:focus {
+      border-color: var(--aqua-deep);
+      box-shadow: 0 0 0 4px rgba(42, 169, 183, 0.2);
+    }
+
+    .publication-list {
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid var(--line);
+      list-style: none;
+    }
+
+    .publication-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 42px;
+      gap: 16px;
+      align-items: start;
+      padding: 27px 14px 29px 0;
+      border-bottom: 1px solid var(--line);
+      transition: padding-left 180ms ease, background 180ms ease;
+    }
+
+    .publication-card:hover {
+      padding-left: 14px;
+      background: linear-gradient(90deg, rgba(220, 248, 242, 0.75), rgba(220, 248, 242, 0));
+    }
+
+    .publication-card[hidden] { display: none; }
+
+    .pub-status {
+      display: inline-block;
+      margin-bottom: 7px;
+      color: var(--aqua-deep);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .publication-card h3 {
+      max-width: 920px;
+      margin: 0 0 6px;
+      font-family: var(--serif);
+      font-size: clamp(18px, 1.8vw, 23px);
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    .publication-card h3 a { text-decoration: none; }
+
+    .publication-card h3 a:hover,
+    .publication-card h3 a:focus-visible { text-decoration: underline; }
+
+    .publication-card p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .abstract-toggle {
+      min-width: 44px;
+      min-height: 44px;
+      margin: 7px 0 -10px;
+      padding: 0;
+      color: var(--aqua-deep);
+      background: transparent;
+      border: 0;
+      border-radius: 8px;
+      font: 700 11px/1 var(--sans);
+      letter-spacing: 0.08em;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .abstract-toggle:hover,
+    .abstract-toggle:focus-visible { color: var(--ink); }
+
+    .pub-abstract {
+      position: absolute;
+      top: calc(100% - 10px);
+      left: 0;
+      right: 52px;
+      z-index: 30;
+      max-width: 920px;
+      margin: 0;
+      padding: 15px 18px !important;
+      color: #385f64 !important;
+      background: rgba(223, 243, 245, 0.97);
+      border: 1px solid rgba(11, 111, 121, 0.22);
+      border-radius: 12px;
+      box-shadow: 0 14px 32px rgba(10, 75, 82, 0.13);
+      font-family: var(--serif);
+      font-size: 13px !important;
+      line-height: 1.6 !important;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-5px);
+      transition: opacity 140ms ease, transform 140ms ease;
+    }
+
+    .publication-card:hover .pub-abstract,
+    .publication-card:focus-within .pub-abstract,
+    .publication-card.abstract-open .pub-abstract {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .publication-card.abstract-dismissed .pub-abstract {
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+
+    .pub-arrow {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      margin-top: 7px;
+      color: var(--aqua-deep);
+      background: var(--aqua-wash);
+      border-radius: 50%;
+      font-size: 14px;
+      transition: color 160ms ease, background 160ms ease, transform 160ms ease;
+    }
+
+    .publication-card:hover .pub-arrow {
+      color: var(--ink);
+      background: var(--aqua);
+      transform: translate(2px, -2px);
+    }
+
+    .no-results {
+      display: none;
+      padding: 44px 0;
+      color: var(--ink-soft);
+      font-family: var(--serif);
+      font-size: 22px;
+      text-align: center;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .secondary-archive {
+      padding: 100px 0;
+      background: var(--aqua-wash);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .secondary-archive .content-section { padding: 0; }
+
+    .work-layout {
+      display: grid;
+      grid-template-columns: 0.48fr 1.52fr;
+      gap: clamp(48px, 8vw, 100px);
+      align-items: start;
+    }
+
+    .work-layout .section-heading {
+      position: sticky;
+      top: 118px;
+      font-size: clamp(32px, 3.8vw, 47px);
+    }
+
+    .work-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      border-top: 1px solid rgba(11, 111, 121, 0.28);
+    }
+
+    .work-card {
+      display: grid;
+      grid-template-columns: 110px minmax(0, 1fr);
+      gap: 26px;
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(11, 111, 121, 0.28);
+    }
+
+    .work-card .year {
+      color: var(--aqua-deep);
+      font-family: var(--serif);
+      font-size: 18px;
+    }
+
+    .work-card h3 {
+      margin: 0 0 6px;
+      font-family: var(--serif);
+      font-size: 19px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .work-card h3 a { text-decoration: none; }
+    .work-card h3 a:hover,
+    .work-card h3 a:focus-visible { text-decoration: underline; }
+
+    .work-card p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 13px;
+    }
+
+    .books-theses {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .collection-panel {
+      overflow: hidden;
+      padding: clamp(30px, 4vw, 50px);
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 18px 50px rgba(10, 75, 82, 0.07);
+    }
+
+    .collection-panel:first-child { border-top: 6px solid var(--aqua); }
+    .collection-panel:last-child { border-top: 6px solid var(--ink); }
+
+    .collection-panel .section-heading {
+      margin-bottom: 30px;
+      font-size: clamp(30px, 3.4vw, 43px);
+    }
+
+    .collection-panel .work-card {
+      grid-template-columns: 74px minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    .site-footer {
+      color: rgba(255, 255, 255, 0.72);
+      background: var(--ink);
+    }
+
+    .footer-shell {
+      width: var(--page);
+      min-height: 168px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .footer-shell p { margin: 0; font-size: 13px; }
+
+    .back-to-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--aqua);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--aqua-deep);
+      outline-offset: 4px;
+    }
+
+    @media (max-width: 980px) {
+      .site-nav { display: none; }
+      .hero-shell,
+      .about-grid,
+      .archive-header,
+      .work-layout { grid-template-columns: 1fr; }
+      .hero-shell { gap: 68px; }
+      .portrait-wrap { justify-self: start; width: min(82vw, 440px); margin-left: 18px; }
+      .about-grid { gap: 44px; }
+      .award-grid { grid-template-columns: 1fr 1fr; }
+      .award-card:nth-child(2) { border-right: 0; }
+      .award-card:nth-child(-n+2) { border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
+      .archive-header { gap: 28px; }
+      .work-layout .section-heading { position: static; }
+      .books-theses { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      :root { --page: min(100% - 28px, 1180px); }
+      .nav-shell { gap: 12px; min-height: 66px; }
+      .brand span:last-child { display: none; }
+      .header-cv { margin-left: auto; }
+      .hero { padding: 62px 0 74px; }
+      h1 { font-size: clamp(46px, 15vw, 66px); }
+      .hero-title { font-size: 18px; }
+      .portrait-wrap { width: min(calc(100% - 18px), 330px); }
+      .portrait-card figcaption { flex-direction: column; gap: 2px; }
+      .content-section { padding: 76px 0; }
+      .research-note { padding: 27px; }
+      .research-note p { font-size: 18px; }
+      .awards-header { align-items: start; flex-direction: column; }
+      .award-grid { grid-template-columns: 1fr; }
+      .award-card { min-height: 220px; border-right: 0; border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
+      .award-card:last-child { border-bottom: 0; }
+      #publication-search { height: 54px; }
+      .publication-card { grid-template-columns: minmax(0, 1fr); gap: 12px; padding-right: 0; }
+      .pub-arrow { display: none; }
+      .publication-card:hover { padding-left: 0; }
+      .publication-card h3 { font-size: 18px; }
+      .pub-abstract { right: 0; }
+      .work-card,
+      .collection-panel .work-card { grid-template-columns: 1fr; gap: 8px; }
+      .collection-panel { padding: 28px 22px; }
+      .footer-shell { min-height: 150px; align-items: flex-start; flex-direction: column; justify-content: center; gap: 16px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: 0.01ms !important; }
+    }
+
+    @media (forced-colors: active) {
+      .button,
+      .header-cv,
+      .research-tags li,
+      .publication-card,
+      .collection-panel,
+      .pub-abstract { border: 1px solid CanvasText; }
+      .brand-mark,
+      .pub-arrow { forced-color-adjust: none; }
+    }
+
+    @media print {
+      :root { --page: 100%; }
+      body { color: #000; background: #fff; font-size: 11pt; }
+      body::before, .progress, .site-header, .search-wrap, .pub-arrow, .back-to-top { display: none !important; }
+      .hero, .awards-band, .secondary-archive { color: #000; background: #fff; border-color: #bbb; }
+      .hero { padding: 32px 0; }
+      .hero-shell, .about-grid, .archive-header, .work-layout, .books-theses { display: block; }
+      .portrait-wrap { width: 220px; margin: 20px 0; }
+      .portrait-wrap::before { display: none; }
+      .portrait-card, .research-note, .collection-panel { color: #000; background: #fff; box-shadow: none; border: 1px solid #bbb; }
+      .content-section { padding: 32px 0; }
+      .award-grid { display: block; border-color: #bbb; }
+      .award-card { min-height: 0; color: #000; border: 0; border-bottom: 1px solid #bbb; }
+      .award-card p, .publication-card p, .work-card p { color: #333; }
+      a { color: #000; text-decoration: none; }
+      .publication-card, .work-card { break-inside: avoid; }
+      .site-footer { color: #000; background: #fff; border-top: 1px solid #bbb; }
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <h1>Mohamed Omar</h1>
-      <p class="subtitle">Professor, Department of Mathematics &amp; Statistics, York University</p>
-      <p class="subtitle">Ross S621. Toronto, Ontario, Canada. M3J 1P3</p>
-      <div class="chips">
-        <span class="chip">Combinatorics</span>
-        <span class="chip">Discrete Mathematics</span>
-        <span class="chip">Polynomial methods</span>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="#top" aria-label="Mohamed Omar — home">
+        <span class="brand-mark" aria-hidden="true">MO</span>
+        <span>Mohamed Omar</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#awards">Awards</a>
+        <a href="#articles">Articles</a>
+        <a href="#books">Books &amp; Theses</a>
+      </nav>
+      <a class="header-cv" href="https://profomarmath.github.io/MohamedOmarCV-Oct-2025-Website.pdf" target="_blank" rel="noopener">CV ↗</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero" id="top">
+      <div class="hero-shell">
+        <div class="hero-copy">
+          <p class="eyebrow">York University · Toronto</p>
+          <h1>Mohamed<br>Omar</h1>
+          <p class="hero-title">Professor, Department of Mathematics &amp; Statistics, York University</p>
+          <ul class="research-tags" aria-label="Research areas">
+            <li>Combinatorics</li>
+            <li>Discrete Mathematics</li>
+            <li>Polynomial methods</li>
+          </ul>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://profomarmath.github.io/MohamedOmarCV-Oct-2025-Website.pdf" target="_blank" rel="noopener">View curriculum vitae <span aria-hidden="true">↗</span></a>
+            <a class="button button-secondary" href="mailto:omarmo@yorku.ca">Email <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+
+        <div class="portrait-wrap">
+          <figure class="portrait-card">
+            <img src="https://profomarmath.github.io/mohamedomar.jpg" alt="Portrait of Mohamed Omar" width="964" height="931">
+            <figcaption>
+              <strong>Professor of Mathematics</strong>
+              <span>Ross S621 · Toronto, Ontario, Canada · M3J 1P3</span>
+            </figcaption>
+          </figure>
+        </div>
       </div>
-      <div class="btns">
-        <a class="btn" href="/MohamedOmarCV-Oct-2025-Website.pdf">CV</a>
-        <a class="btn" href="mailto:omarmo@yorku.ca">Email</a>
+    </section>
+
+    <section class="content-section" id="about">
+      <div class="about-grid">
+        <div>
+          <p class="section-kicker">About</p>
+          <h2 class="section-heading">Academic profile</h2>
+          <p class="intro-copy">Welcome to my academic page! I am a professor in the <a href="https://www.yorku.ca/science/mathstats/" target="_blank" rel="noopener">Department of Mathematics and Statistics</a> at <a href="https://www.yorku.ca/" target="_blank" rel="noopener">York University</a> in my hometown of Toronto, Ontario, Canada. Previously I spent a decade as an associate and assistant professor in the <a href="https://www.hmc.edu/mathematics/" target="_blank" rel="noopener">Department of Mathematics</a> at <a href="https://www.hmc.edu/" target="_blank" rel="noopener">Harvey Mudd College</a>. I completed my postdoctoral fellowship in the <a href="https://www.pma.caltech.edu/research-and-academics/mathematics" target="_blank" rel="noopener">Department of Mathematics</a> at <a href="https://www.caltech.edu/" target="_blank" rel="noopener">Caltech</a>. My PhD was completed in the <a href="https://www.math.ucdavis.edu/" target="_blank" rel="noopener">Department of Mathematics</a> at <a href="https://www.ucdavis.edu/" target="_blank" rel="noopener">UC Davis</a> under the advising of <a href="https://www.math.ucdavis.edu/~deloera/" target="_blank" rel="noopener">Jesús De Loera</a>.</p>
+        </div>
+        <aside class="research-note" aria-label="Research focus">
+          <span class="label">Research focus</span>
+          <p>My research focuses on using polynomials to do discrete math. It’s as simple as that. Below is my work.</p>
+        </aside>
       </div>
-      <p class="lead">
-        Welcome to my academic page! I am a professor in the <a href="https://www.yorku.ca/science/mathstats/" target="_blank">Department of Mathematics and Statistics</a> at <a href="https://www.yorku.ca/" target="_blank">York University</a> in my hometown of Toronto, Ontario, Canada. Previously I spent a decade as an associate and assistant professor in the <a href="https://www.hmc.edu/mathematics/" target="_blank">Department of Mathematics</a> at <a href="https://www.hmc.edu/" target="_blank">Harvey Mudd College</a>. I completed my postdoctoral fellowship in the <a href="https://www.pma.caltech.edu/research-and-academics/mathematics" target="_blank">Department of Mathematics</a> at <a href="https://www.caltech.edu/" target="_blank">Caltech</a>. My PhD was completed in the <a href="https://www.math.ucdavis.edu/" target="_blank">Department of Mathematics</a> at <a href="https://www.ucdavis.edu/" target="_blank">UC Davis</a> under the advising of <a href="https://www.math.ucdavis.edu/~deloera/" target="_blank">Jesús De Loera</a>. 
-     </header>
+    </section>
 
-    <figure>
-  <img src="mohamedomar.jpg" style="width:35%; height:auto;">
-</figure>
- <p></p>
-My research focuses on using polynomials to do discrete math. It's as simple as that. Below is my work.
-    <p></p>
-    <hr/>
+    <section class="awards-band" id="awards">
+      <div class="content-section">
+        <div class="awards-header">
+          <div>
+            <p class="section-kicker">Recognition</p>
+            <h2 class="section-heading">Recent Awards<br>and Grants</h2>
+          </div>
+        </div>
 
-    <main>
+        <div class="award-grid">
+          <article class="award-card">
+            <h3><a href="https://www.nserc-crsng.gc.ca/professors-professeurs/grants-subs/dgigp-psigp_eng.asp" target="_blank" rel="noopener">NSERC Discovery Grant</a></h3>
+            <p>2025–2030 · National Research Grant</p>
+          </article>
+          <article class="award-card">
+            <h3><a href="https://www.ams.org/news?news_id=6808" target="_blank" rel="noopener">AMS Claytor-Gilmer Fellowship</a></h3>
+            <p>Inaugural · National Research Award</p>
+          </article>
+          <article class="award-card">
+            <h3><a href="https://www.edgeforwomen.org/2020-inaugural-class-of-karen-edge-fellows/" target="_blank" rel="noopener">Karen EDGE Fellowship</a></h3>
+            <p>Inaugural · National Research Award</p>
+          </article>
+          <article class="award-card">
+            <h3><a href="https://maa.org/henry-l-alder-award/" target="_blank" rel="noopener">Henry L. Alder Award</a></h3>
+            <p>National Teaching Award</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-      <!-- RECENT GRANTS/AWARDS -->
-      <section class="section" id="awards">
-        <h2>Recent Awards and Grants</h2>
-        <ul>
-          <li><a href="https://www.nserc-crsng.gc.ca/professors-professeurs/grants-subs/dgigp-psigp_eng.asp" target="_blank">NSERC Discovery Grant</a> (2025-2030) (National Research Grant)</li>
-          <li><a href="https://www.ams.org/news?news_id=6808" target="_blank" rel="noopener">AMS Claytor-Gilmer Fellowship</a> (Inaugural, National Research Award)</li>
-          <li><a href="https://www.edgeforwomen.org/2020-inaugural-class-of-karen-edge-fellows/" target="_blank" rel="noopener">Karen EDGE Fellowship</a> (Inaugural, National Research Award)</li>
-          <li><a href="https://maa.org/henry-l-alder-award/" target="_blank" rel="noopener">Henry L. Alder Award</a> (National Teaching Award)</li>
-        </ul>
-      </section>
+    <section class="content-section archive-section" id="articles">
+      <div class="archive-header">
+        <div>
+          <p class="section-kicker">Research archive</p>
+          <h2 class="section-heading">Journal Articles</h2>
+        </div>
+        <label class="search-wrap" for="publication-search">
+          <span class="sr-only">Search journal articles</span>
+          <input id="publication-search" type="search" aria-label="Search journal articles" placeholder="Search title, journal, year, or collaborator" autocomplete="off">
+        </label>
+      </div>
 
-      <section class="section" id="journal-articles">
-        <h2>Journal Articles</h2>
-        <ul>
-          <li>
-            <a href="https://arxiv.org/abs/2511.10373" target="_blank" rel="noopener">Ehrhart Theory over Abelian Groups</a><br/>
-            submitted, 22 pp. w/ Robert Davis, Jesús A. De Loera, Alexey Garber, Katharina Jochemko, Josephine Yu
-          </li>
-          <li>
-            <a href="https://arxiv.org/pdf/2604.03530" target="_blank" rel="noopener">Real Reliability Roots of Simple Graphs are Dense</a><br/>
-            submitted, 10 pp.
-          </li>
-          <li>
-            <a href="https://arxiv.org/pdf/2601.14494 " target="_blank" rel="noopener">New Perspectives on the Unimodality of Domination Polynomials</a><br/>
-            submitted, 18 pp.
-          </li>
-          <li>
-            <a href="https://arxiv.org/pdf/2402.10443" target="_blank" rel="noopener">Permutations with a Given X-Descent Set</a><br/>
-            submitted, 15 pp.
-          </li>
-          <li>
-            <a href="https://arxiv.org/pdf/2602.17401" target="_blank" rel="noopener">On a Quadratic Relation Between Stanley-Wilf Limits and Füredi-Hajnal Limits</a><br/>
-            to appear, <b>Discrete Mathematics Letters</b>, 5 pp.
-          </li>
-          <li>
-            <a href="https://www.sciencedirect.com/science/article/pii/S0195669825001350" target="_blank" rel="noopener">Growth Rates of Permutations with Given Descent or Peak Set</a><br/>
-            <b>European Journal of Combinatorics</b>, 131, 104246, 2026. — w/ Justin Troyka
-          </li>
-           <li>
-            <a href="https://arxiv.org/pdf/2412.10572" target="_blank" rel="noopener">Revisiting Rédei Berge Symmetric Functions via Matrix Algebra</a><br/>
-            <b>Electronic Journal of Combinatorics</b>, Vol 32(4), P.4.43, 2025. — w/ John Irving
-          </li>
-          <li>
-            <a href="https://link.springer.com/article/10.1007/s11083-024-09685-7" target="_blank" rel="noopener">Partition Rank and Partition Lattices</a><br/>
-            <b>Order</b>, Vol 42, pages 371-388, 2025.
-          </li>
-          <li>
-            <a href="https://ajc.maths.uq.edu.au/pdf/86/ajc_v86_p423.pdf" target="_blank" rel="noopener">Sets Avoiding Full-Rank Three-Point Patterns in (F<sub>q</sub><sup>n</sup>)<sup>k</sup> Are Exponentially Small</a><br/>
-            <b>Australasian Journal of Combinatorics</b>, 85(3): 423-429, 2023.
-          </li>
-          <li>
-            <a href="https://link.springer.com/article/10.1007/s00373-022-02523-w" target="_blank" rel="noopener">Burning Graph Classes</a><br/>
-            <b>Graphs and Combinatorics</b>, 38(4), Article 121, 2022. — w/ Vibha Rohilla
-          </li>
-          <li>
-            <a href="https://www.combinatorics.org/ojs/index.php/eljc/article/view/v29i3p21" target="_blank" rel="noopener">On Distinct Distances Between a Variety and a Point Set</a><br/>
-            <b>Electronic Journal of Combinatorics</b>, 29(3), P3.21, 2022. — w/ Bryce McLaughlin
-          </li>
-          <li>
-            <a href="https://www.cambridge.org/core/journals/journal-of-the-australian-mathematical-society/article/abs/factorization-length-distribution-for-affine-semigroups-iii-modular-equidistribution-for-numerical-semigroups-with-arbitrarily-many-generators/B15A90ADDE7DAF335D830034F049C030" target="_blank" rel="noopener">Factorization Length Distribution For Affine Semigroups III: Modular Equidistribution for Numerical Semigroups with Arbitrarily Many Generators</a><br/>
-            <b>Journal of the Australian Mathematical Society</b>, 113(1): 21-35, 2022. — w/ Stephan Ramon Garcia, Christopher O'Neill, Timothy Wesley
-          </li>
-          <li>
-            <a href="https://www.sciencedirect.com/science/article/pii/S0097316520301503" target="_blank" rel="noopener">Factorization Length Distribution For Affine Semigroups II: Asymptotic Behavior for Numerical Semigroups with Arbitrarily Many Generators</a><br/>
-            <b>Journal of Combinatorial Theory, Series A</b>, 178: 105358, 2021. — w/ Stephan Ramon Garcia, Christopher O'Neill, Samuel Yih
-          </li>
-          <li>
-            <a href="https://www.sciencedirect.com/science/article/pii/S0024379520303918" target="_blank" rel="noopener">Weighted Means of B-Splines, Positivity of Divided Differences, and Complete Homogeneous Symmetric Polynomials</a><br/>
-            <b>Linear Algebra and its Applications</b>, 608: 68-83, 2021. — w/ Albrecht Böttcher, Stephan Ramon Garcia, Christopher O'Neill
-          </li>
-          <li>
-            <a href="https://ajc.maths.uq.edu.au/pdf/75/ajc_v75_p174.pdf" target="_blank" rel="noopener">Counting Peaks on Graphs</a><br/>
-            <b>Australasian Journal of Combinatorics</b>, 75(2): 174-189, 2019. — w/ Alex Diaz-Lopez, Lucas Everham, Pamela E. Harris, Erik Insko, Vince Marcantonio
-          </li>
-          <li>
-            <a href="https://www.sciencedirect.com/science/article/pii/S0012365X19300457" target="_blank" rel="noopener">Descent Polynomials</a><br/>
-            <b>Discrete Mathematics</b>, 342: 1674-1686, 2019. — w/ Alex Diaz-Lopez, Pamela E. Harris, Erik Insko, Bruce Sagan
-          </li>
-          <li>
-            <a href="https://msp.org/involve/2019/12-5/p02.xhtml" target="_blank" rel="noopener">Sparse Neural Codes and Convexity</a><br/>
-            <b>Involve</b>, 12(5): 737-754, 2019. — w/ R. Amzi Jeffs, Natchanon Suaysom, Aleina Wachtel, Nora Youngs
-          </li>
-          <li>
-            <a href="https://math.colgate.edu/~integers/s90/s90.pdf" target="_blank" rel="noopener">Lattice Point Visibility On Power Functions</a><br/>
-            <b>INTEGERS</b>, 18: A90, 2018. — w/ Pamela E. Harris
-          </li>
-          <li>
-            <a href="https://www.sciencedirect.com/science/article/pii/S0022404917303018" target="_blank" rel="noopener">Homomorphisms Preserving Neural Ideals</a><br/>
-            <b>Journal of Pure and Applied Algebra</b>, 222(11): 3470-3482, 2018. — w/ R. Amzi Jeffs, Nora Youngs
-          </li>
-          <li>
-            <a href="https://ajc.maths.uq.edu.au/pdf/71/ajc_v71_p068.pdf" target="_blank" rel="noopener">The q-analog of Kostant's partition function and the highest root of the classical Lie algebras</a><br/>
-            <b>Australasian Journal Of Combinatorics</b>, 71(1): 68-91, 2018. — w/ Pamela E. Harris, Erik Insko
-          </li>
-          <li>
-            <a href="https://www.sciencedirect.com/science/article/pii/S0097316517300122" target="_blank" rel="noopener">A Proof of the Peak Polynomial Positivity Conjecture</a><br/>
-            <b>Journal of Combinatorial Theory Series A</b>, 149: 21-29, 2017. — w/ Alex Diaz-Lopez, Pamela E. Harris, Erik Insko
-          </li>
-          <li>
-            <a href="https://epubs.siam.org/doi/10.1137/16M1073170" target="_blank" rel="noopener">What makes a neural code convex?</a><br/>
-            <b>SIAM Journal on Applied Algebra and Geometry</b>, 1(1): 222-238, 2017. — w/ Carina Curto, Elizabeth Gross, Jack Jeffries, Katherine Morrison, Zvi Rosen, Anne Shiu, Nora Youngs
-          </li>
-          <li>
-            <a href="https://www.combinatorics.org/ojs/index.php/eljc/article/view/v23i1p6/pdf" target="_blank" rel="noopener">Low Degree Nullstellensatz Certificates for 3-Colorability</a><br/>
-            <b>Electronic Journal of Combinatorics</b>, 23(1): P1.6, 2016. — w/ Bo Li, Benjamin Lowenstein
-          </li>
-          <li>
-            <a href="https://www.combinatorics.org/ojs/index.php/eljc/article/view/v21i4p17" target="_blank" rel="noopener">Chromatic Bounds on Orbital Chromatic Roots</a><br/>
-            <b>Electronic Journal of Combinatorics</b>, 21(4): P4.17, 2014. — w/ Dae Hyun Kim, Alexander H. Mun
-          </li>
-          <li>
-            <a href="https://www.sciencedirect.com/science/article/abs/pii/S0022404912002617" target="_blank" rel="noopener">Strong Nonnegativity and Sums of Squares on Real Varieties</a><br/>
-            <b>Journal of Pure and Applied Algebra</b>, 217(5): 843-850, 2013. — w/ Brian Osserman
-          </li>
-          <li>
-            <a href="https://link.springer.com/chapter/10.1007/978-3-319-00200-2_5" target="_blank" rel="noopener">On Volumes of Permutation Polytopes</a><br/>
-            <b>Fields Institute Communications</b>, Discrete Geometry and Optimization, 55-77, 2013. — w/ Katherine Burggraf, Jesus De Loera
-          </li>
-          <li>
-            <a href="https://dl.acm.org/doi/abs/10.1109/TCBB.2012.84" target="_blank" rel="noopener">On The Hardness of Counting and Sampling Center Strings</a><br/>
-            <b>IEEE/ACM Transactions on Computational Biology and Bioinformatics</b>, 9(6): 1843-1846, 2012. — w/ Christina Boucher
-          </li>
-          <li>
-            <a href="https://www.combinatorics.org/ojs/index.php/eljc/article/view/v17i1r114" target="_blank" rel="noopener">Recognizing Graph Theoretic Properties with Polynomial Ideals</a><br/>
-            <b>Electronic Journal of Combinatorics</b>, 17(1): R114, 2010. — w/ Christopher Hillar, Jesus De Loera, Peter N. Malkin
-          </li>
-          <li>
-            <a href="https://www.researchgate.net/publication/220223465_Asymptotics_of_Largest_Components_in_Combinatorial_Structures" target="_blank" rel="noopener">Asymptotics of Largest Components in Combinatorial Structures</a><br/>
-            <b>Algorithmica</b>, 46(3-4): 493-503, 2006. — w/ Daniel Panario, Bruce Richmond, Jacki Whitely
-          </li>
-        </ul>
-      </section>
+      <ul class="publication-list" id="publication-list">
+        <li class="publication-card">
+          <div><span class="pub-status">Submitted</span><h3><a href="https://arxiv.org/abs/2511.10373" target="_blank" rel="noopener">Ehrhart Theory over Abelian Groups</a></h3><p>submitted, 22 pp. w/ Robert Davis, Jesús A. De Loera, Alexey Garber, Katharina Jochemko, Josephine Yu</p><button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-01">Abstract</button></div>
+          <span class="pub-arrow" aria-hidden="true">↗</span>
+          <p class="pub-abstract" id="abstract-01">Develops an Ehrhart-theoretic framework over abelian groups and studies the counting functions and structural phenomena that arise in that setting.</p>
+        </li>
+        <li class="publication-card">
+          <div><span class="pub-status">Submitted</span><h3><a href="https://arxiv.org/pdf/2604.03530" target="_blank" rel="noopener">Real Reliability Roots of Simple Graphs are Dense</a></h3><p>submitted, 10 pp.</p><button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-02">Abstract</button></div>
+          <span class="pub-arrow" aria-hidden="true">↗</span>
+          <p class="pub-abstract" id="abstract-02">Shows that real roots of reliability polynomials of simple graphs form a dense set, extending the known landscape of graph reliability roots.</p>
+        </li>
+        <li class="publication-card">
+          <div><span class="pub-status">Submitted</span><h3><a href="https://arxiv.org/pdf/2601.14494" target="_blank" rel="noopener">New Perspectives on the Unimodality of Domination Polynomials</a></h3><p>submitted, 18 pp.</p><button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-03">Abstract</button></div>
+          <span class="pub-arrow" aria-hidden="true">↗</span>
+          <p class="pub-abstract" id="abstract-03">Develops new methods for studying coefficient unimodality in domination polynomials and obtains improved sufficient conditions for unimodality.</p>
+        </li>
+        <li class="publication-card">
+          <div><span class="pub-status">Submitted</span><h3><a href="https://arxiv.org/pdf/2402.10443" target="_blank" rel="noopener">Permutations with a Given X-Descent Set</a></h3><p>submitted, 15 pp.</p><button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-04">Abstract</button></div>
+          <span class="pub-arrow" aria-hidden="true">↗</span>
+          <p class="pub-abstract" id="abstract-04">Studies permutations with a prescribed X-descent set, deriving enumerative formulas and structural results for the associated permutation classes.</p>
+        </li>
+        <li class="publication-card">
+          <div><span class="pub-status">To appear</span><h3><a href="https://arxiv.org/pdf/2602.17401" target="_blank" rel="noopener">On a Quadratic Relation Between Stanley-Wilf Limits and Füredi-Hajnal Limits</a></h3><p>to appear, Discrete Mathematics Letters, 5 pp.</p><button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-05">Abstract</button></div>
+          <span class="pub-arrow" aria-hidden="true">↗</span>
+          <p class="pub-abstract" id="abstract-05">Establishes a quadratic relationship between Stanley-Wilf limits and Füredi-Hajnal limits for permutation patterns.</p>
+        </li>
+        <li class="publication-card">
+          <div><span class="pub-status">2026</span><h3><a href="https://www.sciencedirect.com/science/article/pii/S0195669825001350" target="_blank" rel="noopener">Growth Rates of Permutations with Given Descent or Peak Set</a></h3><p>European Journal of Combinatorics, 131, 104246, 2026. — w/ Justin Troyka</p><button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-06">Abstract</button></div>
+          <span class="pub-arrow" aria-hidden="true">↗</span>
+          <p class="pub-abstract" id="abstract-06">Determines growth rates for permutations constrained by a given descent or peak set and relates the two families.</p>
+        </li>
+        <li class="publication-card">
+          <div><span class="pub-status">2025</span><h3><a href="https://arxiv.org/pdf/2412.10572" target="_blank" rel="noopener">Revisiting Rédei Berge Symmetric Functions via Matrix Algebra</a></h3><p>Electronic Journal of Combinatorics, Vol 32(4), P.4.43, 2025. — w/ John Irving</p><button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-07">Abstract</button></div>
+          <span class="pub-arrow" aria-hidden="true">↗</span>
+          <p class="pub-abstract" id="abstract-07">Recasts Rédei-Berge symmetric functions through matrix algebra, yielding new formulas, interpretations, and proofs.</p>
+        </li>
+        <li class="publication-card">
+          <div><span class="pub-status">2025</span><h3><a href="https://link.springer.com/article/10.1007/s11083-024-09685-7" target="_blank" rel="noopener">Partition Rank and Partition Lattices</a></h3><p>Order, Vol 42, pages 371-388, 2025.</p><button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-08">Abstract</button></div>
+          <span class="pub-arrow" aria-hidden="true">↗</span>
+          <p class="pub-abstract" id="abstract-08">Connects partition rank decompositions with the combinatorics of partition lattices and develops rank bounds from that relationship.</p>
+        </li>
+        <li class="publication-card">
+          <div><span class="pub-status">2023</span><h3><a href="https://ajc.maths.uq.edu.au/pdf/86/ajc_v86_p423.pdf" target="_blank" rel="noopener">Sets Avoiding Full-Rank Three-Point Patterns in (F<sub>q</sub><sup>n</sup>)<sup>k</sup> Are Exponentially Small</a></h3><p>Australasian Journal of Combinatorics, 85(3): 423-429, 2023.</p><button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-09">Abstract</button></div>
+          <span class="pub-arrow" aria-hidden="true">↗</span>
+          <p class="pub-abstract" id="abstract-09">Proves exponential upper bounds for subsets of finite-field spaces that avoid prescribed full-rank three-point configurations.</p>
+        </li>
+        <li class="publication-card">
+          <div><span class="pub-status">2022</span><h3><a href="https://link.springer.com/article/10.1007/s00373-022-02523-w" target="_blank" rel="noopener">Burning Graph Classes</a></h3><p>Graphs and Combinatorics, 38(4), Article 121, 2022. — w/ Vibha Rohilla</p><button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-10">Abstract</button></div>
+          <span class="pub-arrow" aria-hidden="true">↗</span>
+          <p class="pub-abstract" id="abstract-10">Investigates graph burning across graph classes, identifying structural conditions and bounds for the burning number.</p>
+        </li>
+        <li class="publication-card">
+          <div><span class="pub-status">2022</span><h3><a href="https://www.combinatorics.org/ojs/index.php/eljc/article/view/v29i3p21" target="_blank" rel="noopener">On Distinct Distances Between a Variety and a Point Set</a></h3><p>Electronic Journal of Combinatorics, 29(3), P3.21, 2022. — w/ Bryce McLaughlin</p><button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-11">Abstract</button></div>
+          <span class="pub-arrow" aria-hidden="true">↗</span>
+          <p class="pub-abstract" id="abstract-11">Gives bounds for the number of distinct distances determined between a fixed algebraic variety and a finite point set.</p>
+        </li>
+        <li class="publication-card">
+          <div><span class="pub-status">2022</span><h3><a href="https://www.cambridge.org/core/journals/journal-of-the-australian-mathematical-society/article/abs/factorization-length-distribution-for-affine-semigroups-iii-modular-equidistribution-for-numerical-semigroups-with-arbitrarily-many-generators/B15A90ADDE7DAF335D830034F049C030" target="_blank" rel="noopener">Factorization Length Distribution For Affine Semigroups III: Modular Equidistribution for Numerical Semigroups with Arbitrarily Many Generators</a></h3><p>Journal of the Australian Mathematical Society, 113(1): 21-35, 2022. — w/ Stephan Ramon Garcia, Christopher O'Neill, Timothy Wesley</p><button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-12">Abstract</button></div>
+          <span class="pub-arrow" aria-hidden="true">↗</span>
+          <p class="pub-abstract" id="abstract-12">Proves modular equidistribution results for factorization lengths in numerical semigroups with arbitrarily many generators.</p>
+        </li>
+        <li class="publication-card">
+          <div><span class="pub-status">2021</span><h3><a href="https://www.sciencedirect.com/science/article/pii/S0097316520301503" target="_blank" rel="noopener">Factorization Length Distribution For Affine Semigroups II: Asymptotic Behavior for Numerical Semigroups with Arbitrarily Many Generators</a></h3><p>Journal of Combinatorial Theory, Series A, 178: 105358, 2021. — w/ Stephan Ramon Garcia, Christopher O'Neill, Samuel Yih</p><button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-13">Abstract</button></div>
+          <span class="pub-arrow" aria-hidden="true">↗</span>
+          <p class="pub-abstract" id="abstract-13">Determines the asymptotic distribution of factorization lengths in numerical semigroups with arbitrarily many generators.</p>
+        </li>
+        <li class="publication-card">
+          <div><span class="pub-status">2021</span><h3><a href="https://www.sciencedirect.com/science/article/pii/S0024379520303918" target="_blank" rel="noopener">Weighted Means of B-Splines, Positivity of Divided Differences, and Complete Homogeneous Symmetric Polynomials</a></h3><p>Linear Algebra and its Applications, 608: 68-83, 2021. — w/ Albrecht Böttcher, Stephan Ramon Garcia, Christopher O'Neill</p><button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-14">Abstract</button></div>
+          <span class="pub-arrow" aria-hidden="true">↗</span>
+          <p class="pub-abstract" id="abstract-14">Relates weighted means of B-splines, positivity of divided differences, and complete homogeneous symmetric polynomials through a common algebraic framework.</p>
+        </li>
+        <li class="publication-card">
+          <div><span class="pub-status">2019</span><h3><a href="https://ajc.maths.uq.edu.au/pdf/75/ajc_v75_p174.pdf" target="_blank" rel="noopener">Counting Peaks on Graphs</a></h3><p>Australasian Journal of Combinatorics, 75(2): 174-189, 2019. — w/ Alex Diaz-Lopez, Lucas Everham, Pamela E. Harris, Erik Insko, Vince Marcantonio</p><button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-15">Abstract</button></div>
+          <span class="pub-arrow" aria-hidden="true">↗</span>
+          <p class="pub-abstract" id="abstract-15">Introduces and enumerates peak sets on graphs, extending classical permutation peak statistics to graph-labelled settings.</p>
+        </li>
+        <li class="publication-card">
+          <div><span class="pub-status">2019</span><h3><a href="https://www.sciencedirect.com/science/article/pii/S0012365X19300457" target="_blank" rel="noopener">Descent Polynomials</a></h3><p>Discrete Mathematics, 342: 1674-1686, 2019. — w/ Alex Diaz-Lopez, Pamela E. Harris, Erik Insko, Bruce Sagan</p><button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-16">Abstract</button></div>
+          <span class="pub-arrow" aria-hidden="true">↗</span>
+          <p class="pub-abstract" id="abstract-16">Studies descent polynomials associated with prescribed descent sets, including their coefficients, roots, and positivity properties.</p>
+        </li>
+        <li class="publication-card">
+          <div><span class="pub-status">2019</span><h3><a href="https://msp.org/involve/2019/12-5/p02.xhtml" target="_blank" rel="noopener">Sparse Neural Codes and Convexity</a></h3><p>Involve, 12(5): 737-754, 2019. — w/ R. Amzi Jeffs, Natchanon Suaysom, Aleina Wachtel, Nora Youngs</p><button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-17">Abstract</button></div>
+          <span class="pub-arrow" aria-hidden="true">↗</span>
+          <p class="pub-abstract" id="abstract-17">Examines convex realizations of sparse neural codes and gives structural conditions governing convexity.</p>
+        </li>
+        <li class="publication-card">
+          <div><span class="pub-status">2018</span><h3><a href="https://math.colgate.edu/~integers/s90/s90.pdf" target="_blank" rel="noopener">Lattice Point Visibility On Power Functions</a></h3><p>INTEGERS, 18: A90, 2018. — w/ Pamela E. Harris</p><button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-18">Abstract</button></div>
+          <span class="pub-arrow" aria-hidden="true">↗</span>
+          <p class="pub-abstract" id="abstract-18">Studies visibility of lattice points lying on power functions and derives asymptotic counting results.</p>
+        </li>
+        <li class="publication-card">
+          <div><span class="pub-status">2018</span><h3><a href="https://www.sciencedirect.com/science/article/pii/S0022404917303018" target="_blank" rel="noopener">Homomorphisms Preserving Neural Ideals</a></h3><p>Journal of Pure and Applied Algebra, 222(11): 3470-3482, 2018. — w/ R. Amzi Jeffs, Nora Youngs</p><button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-19">Abstract</button></div>
+          <span class="pub-arrow" aria-hidden="true">↗</span>
+          <p class="pub-abstract" id="abstract-19">Characterizes homomorphisms that preserve neural ideals and describes their combinatorial effect on neural codes.</p>
+        </li>
+        <li class="publication-card">
+          <div><span class="pub-status">2018</span><h3><a href="https://ajc.maths.uq.edu.au/pdf/71/ajc_v71_p068.pdf" target="_blank" rel="noopener">The q-analog of Kostant's partition function and the highest root of the classical Lie algebras</a></h3><p>Australasian Journal Of Combinatorics, 71(1): 68-91, 2018. — w/ Pamela E. Harris, Erik Insko</p><button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-20">Abstract</button></div>
+          <span class="pub-arrow" aria-hidden="true">↗</span>
+          <p class="pub-abstract" id="abstract-20">Analyzes the q-analog of Kostant’s partition function for highest roots in the classical Lie algebras.</p>
+        </li>
+        <li class="publication-card">
+          <div><span class="pub-status">2017</span><h3><a href="https://www.sciencedirect.com/science/article/pii/S0097316517300122" target="_blank" rel="noopener">A Proof of the Peak Polynomial Positivity Conjecture</a></h3><p>Journal of Combinatorial Theory Series A, 149: 21-29, 2017. — w/ Alex Diaz-Lopez, Pamela E. Harris, Erik Insko</p><button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-21">Abstract</button></div>
+          <span class="pub-arrow" aria-hidden="true">↗</span>
+          <p class="pub-abstract" id="abstract-21">Proves the peak polynomial positivity conjecture by establishing positivity for the relevant polynomial coefficients.</p>
+        </li>
+        <li class="publication-card">
+          <div><span class="pub-status">2017</span><h3><a href="https://epubs.siam.org/doi/10.1137/16M1073170" target="_blank" rel="noopener">What makes a neural code convex?</a></h3><p>SIAM Journal on Applied Algebra and Geometry, 1(1): 222-238, 2017. — w/ Carina Curto, Elizabeth Gross, Jack Jeffries, Katherine Morrison, Zvi Rosen, Anne Shiu, Nora Youngs</p><button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-22">Abstract</button></div>
+          <span class="pub-arrow" aria-hidden="true">↗</span>
+          <p class="pub-abstract" id="abstract-22">Identifies combinatorial and geometric conditions that determine when a neural code admits a convex realization.</p>
+        </li>
+        <li class="publication-card">
+          <div><span class="pub-status">2016</span><h3><a href="https://www.combinatorics.org/ojs/index.php/eljc/article/view/v23i1p6/pdf" target="_blank" rel="noopener">Low Degree Nullstellensatz Certificates for 3-Colorability</a></h3><p>Electronic Journal of Combinatorics, 23(1): P1.6, 2016. — w/ Bo Li, Benjamin Lowenstein</p><button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-23">Abstract</button></div>
+          <span class="pub-arrow" aria-hidden="true">↗</span>
+          <p class="pub-abstract" id="abstract-23">Constructs and bounds low-degree Nullstellensatz certificates for graph 3-colorability.</p>
+        </li>
+        <li class="publication-card">
+          <div><span class="pub-status">2014</span><h3><a href="https://www.combinatorics.org/ojs/index.php/eljc/article/view/v21i4p17" target="_blank" rel="noopener">Chromatic Bounds on Orbital Chromatic Roots</a></h3><p>Electronic Journal of Combinatorics, 21(4): P4.17, 2014. — w/ Dae Hyun Kim, Alexander H. Mun</p><button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-24">Abstract</button></div>
+          <span class="pub-arrow" aria-hidden="true">↗</span>
+          <p class="pub-abstract" id="abstract-24">Uses chromatic information to bound the roots of orbital chromatic polynomials.</p>
+        </li>
+        <li class="publication-card">
+          <div><span class="pub-status">2013</span><h3><a href="https://www.sciencedirect.com/science/article/abs/pii/S0022404912002617" target="_blank" rel="noopener">Strong Nonnegativity and Sums of Squares on Real Varieties</a></h3><p>Journal of Pure and Applied Algebra, 217(5): 843-850, 2013. — w/ Brian Osserman</p><button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-25">Abstract</button></div>
+          <span class="pub-arrow" aria-hidden="true">↗</span>
+          <p class="pub-abstract" id="abstract-25">Develops strong nonnegativity on real varieties and relates it to representations as sums of squares.</p>
+        </li>
+        <li class="publication-card">
+          <div><span class="pub-status">2013</span><h3><a href="https://link.springer.com/chapter/10.1007/978-3-319-00200-2_5" target="_blank" rel="noopener">On Volumes of Permutation Polytopes</a></h3><p>Fields Institute Communications, Discrete Geometry and Optimization, 55-77, 2013. — w/ Katherine Burggraf, Jesus De Loera</p><button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-26">Abstract</button></div>
+          <span class="pub-arrow" aria-hidden="true">↗</span>
+          <p class="pub-abstract" id="abstract-26">Studies volumes of permutation polytopes and derives formulas and bounds from the combinatorics of permutation groups.</p>
+        </li>
+        <li class="publication-card">
+          <div><span class="pub-status">2012</span><h3><a href="https://dl.acm.org/doi/abs/10.1109/TCBB.2012.84" target="_blank" rel="noopener">On The Hardness of Counting and Sampling Center Strings</a></h3><p>IEEE/ACM Transactions on Computational Biology and Bioinformatics, 9(6): 1843-1846, 2012. — w/ Christina Boucher</p><button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-27">Abstract</button></div>
+          <span class="pub-arrow" aria-hidden="true">↗</span>
+          <p class="pub-abstract" id="abstract-27">Establishes computational hardness results for counting and sampling center strings in biological sequence analysis.</p>
+        </li>
+        <li class="publication-card">
+          <div><span class="pub-status">2010</span><h3><a href="https://www.combinatorics.org/ojs/index.php/eljc/article/view/v17i1r114" target="_blank" rel="noopener">Recognizing Graph Theoretic Properties with Polynomial Ideals</a></h3><p>Electronic Journal of Combinatorics, 17(1): R114, 2010. — w/ Christopher Hillar, Jesus De Loera, Peter N. Malkin</p><button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-28">Abstract</button></div>
+          <span class="pub-arrow" aria-hidden="true">↗</span>
+          <p class="pub-abstract" id="abstract-28">Uses polynomial ideals and algebraic certificates to recognize graph-theoretic properties.</p>
+        </li>
+        <li class="publication-card">
+          <div><span class="pub-status">2006</span><h3><a href="https://www.researchgate.net/publication/220223465_Asymptotics_of_Largest_Components_in_Combinatorial_Structures" target="_blank" rel="noopener">Asymptotics of Largest Components in Combinatorial Structures</a></h3><p>Algorithmica, 46(3-4): 493-503, 2006. — w/ Daniel Panario, Bruce Richmond, Jacki Whitely</p><button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-29">Abstract</button></div>
+          <span class="pub-arrow" aria-hidden="true">↗</span>
+          <p class="pub-abstract" id="abstract-29">Derives asymptotic laws for the largest components in broad classes of combinatorial structures.</p>
+        </li>
+      </ul>
+      <p class="no-results" id="no-results">No journal articles match that search.</p>
+      <p class="sr-only" id="publication-status" aria-live="polite"></p>
+    </section>
 
-      <!-- CONFERENCE ARTICLES -->
-      <section class="section" id="conference">
-        <h2>Conference Articles</h2>
-        <ul>
-          <li>
-            <a href="https://www.aaai.org/ocs/index.php/ICAPS/ICAPS18/paper/view/17775" target="_blank" rel="noopener">New Perspectives on Flexibility in Simple Temporal Planning</a><br/>
-            <b>ICAPS 2018</b>, 18 pp., 2018. — w/ Jim Boerkoel, Amy Huang, Liam Lloyd
-          </li>
-          <li>
-            <a href="http://arxiv.org/pdf/1605.01708.pdf" target="_blank" rel="noopener">A Proof of the Peak Polynomial Positivity Conjecture</a><br/>
-            <b>FPSAC 2017</b>, 10 pp., 2017. — w/ Alex Diaz-Lopez, Pamela E. Harris, Erik Insko
-          </li>
-          <li>
-            <a href="http://dl.acm.org/citation.cfm?id=2415683" target="_blank" rel="noopener">On The Hardness of Counting and Sampling Center Strings</a><br/>
-            <b>SPIRE 2010</b>, 128-135, 2010. — w/ Christina Boucher
-          </li>
-          <li>
-            <a href="https://dmtcs.episciences.org/3564" target="_blank" rel="noopener">Distribution of the Number of Encryptions in Revocation Schemes for Stateless Receivers</a><br/>
-            <b>DMTCS / 5th Colloquium on Math &amp; CS</b>, 195-206, 2008. — w/ Christopher Eagle, Zhicheng Gao, Daniel Panario, Bruce Richmond
-          </li>
-        </ul>
-      </section>
+    <section class="secondary-archive" id="conference">
+      <div class="content-section">
+        <div class="work-layout">
+          <div>
+            <p class="section-kicker">Proceedings</p>
+            <h2 class="section-heading">Conference Articles</h2>
+          </div>
+          <ul class="work-list">
+            <li class="work-card"><span class="year">2018</span><div><h3><a href="https://www.aaai.org/ocs/index.php/ICAPS/ICAPS18/paper/view/17775" target="_blank" rel="noopener">New Perspectives on Flexibility in Simple Temporal Planning</a></h3><p>ICAPS 2018, 18 pp., 2018. — w/ Jim Boerkoel, Amy Huang, Liam Lloyd</p></div></li>
+            <li class="work-card"><span class="year">2017</span><div><h3><a href="http://arxiv.org/pdf/1605.01708.pdf" target="_blank" rel="noopener">A Proof of the Peak Polynomial Positivity Conjecture</a></h3><p>FPSAC 2017, 10 pp., 2017. — w/ Alex Diaz-Lopez, Pamela E. Harris, Erik Insko</p></div></li>
+            <li class="work-card"><span class="year">2010</span><div><h3><a href="http://dl.acm.org/citation.cfm?id=2415683" target="_blank" rel="noopener">On The Hardness of Counting and Sampling Center Strings</a></h3><p>SPIRE 2010, 128-135, 2010. — w/ Christina Boucher</p></div></li>
+            <li class="work-card"><span class="year">2008</span><div><h3><a href="https://dmtcs.episciences.org/3564" target="_blank" rel="noopener">Distribution of the Number of Encryptions in Revocation Schemes for Stateless Receivers</a></h3><p>DMTCS / 5th Colloquium on Math &amp; CS, 195-206, 2008. — w/ Christopher Eagle, Zhicheng Gao, Daniel Panario, Bruce Richmond</p></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-      <!-- BOOKS -->
-      <section class="section" id="books">
-        <h2>Books</h2>
-        <ul>
-          <li>
-            <a href="https://www.amazon.com/Graph-Theory-Before-Undergrad-Research/dp/B09HG4VY65" target="_blank" rel="noopener">Graph Theory You Need Before Undergrad Research: in 8 undergrad lectures</a><br/>
-            Amazon CreateSpace, 2021.
-          </li>
-          <li>
-            <a href="https://www.amazon.com/Number-Theory-Toward-Cryptography-Undergraduate/dp/1978457464" target="_blank" rel="noopener">Number Theory Toward RSA Cryptography: in 10 undergraduate lectures</a><br/>
-            Amazon CreateSpace, 2017.
-          </li>
-          <li>
-            <a href="http://bookstore.ams.org/conm-685/" target="_blank" rel="noopener">Algebraic and Geometric Methods in Applied Discrete Mathematics</a><br/>
-            <b>Contemporary Mathematics</b>, AMS Special Session, Vol. 685, 2017. — w/ Heather Harrington, Matthew Wright
-          </li>
-        </ul>
-      </section>
+    <section class="content-section" id="books">
+      <p class="section-kicker">Long-form work</p>
+      <div class="books-theses">
+        <article class="collection-panel">
+          <h2 class="section-heading">Books</h2>
+          <ul class="work-list">
+            <li class="work-card"><span class="year">2021</span><div><h3><a href="https://www.amazon.com/Graph-Theory-Before-Undergrad-Research/dp/B09HG4VY65" target="_blank" rel="noopener">Graph Theory You Need Before Undergrad Research: in 8 undergrad lectures</a></h3><p>Amazon CreateSpace, 2021.</p></div></li>
+            <li class="work-card"><span class="year">2017</span><div><h3><a href="https://www.amazon.com/Number-Theory-Toward-Cryptography-Undergraduate/dp/1978457464" target="_blank" rel="noopener">Number Theory Toward RSA Cryptography: in 10 undergraduate lectures</a></h3><p>Amazon CreateSpace, 2017.</p></div></li>
+            <li class="work-card"><span class="year">2017</span><div><h3><a href="http://bookstore.ams.org/conm-685/" target="_blank" rel="noopener">Algebraic and Geometric Methods in Applied Discrete Mathematics</a></h3><p>Contemporary Mathematics, AMS Special Session, Vol. 685, 2017. — w/ Heather Harrington, Matthew Wright</p></div></li>
+          </ul>
+        </article>
 
-      <!-- OTHER ARTICLES 
-      <section class="section" id="other-articles">
-        <h2>Other Articles</h2>
-        <ul>
-          <li>
-            <a href="https://www.tandfonline.com/doi/abs/10.1080/10511970.2018.1475435" target="_blank" rel="noopener">I Felt Like a Mathematician: Combining Challenging Theorems with Creative Effort and Metacognition</a><br/>
-            <b>PRIMUS</b>, 29(1): 82-102, 2019. — w/ H. El-Turkey, G. Karakok, M. Savic, G. Tang
-          </li>
-          <li>
-            <a href="" target="_blank" rel="noopener">Preparing Students for the GRE Math Subject Test</a><br/>
-            <b>Math Focus</b>, Oct/Nov: 24-25, 2018. — w/ Ivan B. Ventura
-          </li>
-          <li>
-            Pedagogical Practices for Fostering Mathematical Creativity and Proof-Based Courses: Three Case Studies<br/>
-            <b>RUME 20th Annual Conference Proceedings</b>, 1418-1424, 2017. — w/ E. Cilli-Turner, H. El-Turkey, G. Karakok, D. Plaxco, M. Savic, G. Tang
-          </li>
-          <li>
-            <a href="http://www.cyprusconferences.org/mcg10/files/Proceedings_MCG10_FinalPublication.pdf." target="_blank" rel="noopener">Pedagogical Practices for Fostering Mathematical Creativity in Tertiary-Level Proof-Based Courses</a><br/>
-            <b>MCG10 Proceedings</b>, 130-135, 2017. — same author list as above
-          </li>
-          <li>
-            <a href="http://www.maa.org/press/periodicals/math-horizons/math-horizons-contents-november-2016" target="_blank" rel="noopener">Tame The GRE Math Subject Test</a><br/>
-            <b>Math Horizons</b>, 24(2): 28-29, 2016.
-          </li>
-        </ul>
-      </section> -->
-            
+        <article class="collection-panel">
+          <h2 class="section-heading">Theses</h2>
+          <ul class="work-list">
+            <li class="work-card"><span class="year">Ph.D.</span><div><h3><a href="https://profomarmath.github.io/Dissertation.pdf" target="_blank" rel="noopener">Applications of Convex and Algebraic Geometry to Graphs and Polytopes</a></h3><p>Ph.D. Thesis. Advisor: Jesús De Loera. UC Davis, 2011.</p></div></li>
+            <li class="work-card"><span class="year">M.Math.</span><div><h3><a href="https://profomarmath.github.io/MastersThesis.pdf" target="_blank" rel="noopener">Combinatorial Approaches to the Jacobian Conjecture</a></h3><p>Master’s Thesis. Advisor: Ian P. Goulden. University of Waterloo, 2007.</p></div></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
 
-      <!-- THESES -->
-      <section class="section" id="theses">
-        <h2>Theses</h2>
-        <ul>
-          <li>
-            <a href="Dissertation.pdf" target="_blank" rel="noopener">Applications of Convex and Algebraic Geometry to Graphs and Polytopes</a><br/>
-            Ph.D. Thesis. Advisor: Jesús De Loera. UC Davis, 2011.
-          </li>
-          <li>
-            <a href="MastersThesis.pdf" target="_blank" rel="noopener">Combinatorial Approaches to the Jacobian Conjecture</a><br/>
-            Master’s Thesis. Advisor: Ian P. Goulden. University of Waterloo, 2007.
-          </li>
-        </ul>
-      </section>
-
-    </main>
-
-    <footer class="foot">
-      © <span id="y"></span> Mohamed Omar. All rights reserved.
-    </footer>
-  </div>
+  <footer class="site-footer">
+    <div class="footer-shell">
+      <p>© 2026 Mohamed Omar. All rights reserved.</p>
+      <a class="back-to-top" href="#top">Back to top <span aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
 
   <script>
-    // year
-    document.getElementById('y').textContent = new Date().getFullYear();
+    (function () {
+      const search = document.getElementById('publication-search');
+      const cards = Array.from(document.querySelectorAll('.publication-card'));
+      const abstractButtons = Array.from(document.querySelectorAll('.abstract-toggle'));
+      const empty = document.getElementById('no-results');
+      const status = document.getElementById('publication-status');
+      const progress = document.getElementById('progress');
+
+      function filterPublications() {
+        const query = search.value.trim().toLocaleLowerCase();
+        let visible = 0;
+        cards.forEach(function (card) {
+          const match = !query || card.textContent.toLocaleLowerCase().includes(query);
+          card.hidden = !match;
+          if (match) visible += 1;
+        });
+        empty.style.display = visible ? 'none' : 'block';
+        status.textContent = query ? (visible ? 'Journal articles filtered.' : 'No journal articles match your search.') : '';
+      }
+
+      function closeAbstracts(exceptCard) {
+        cards.forEach(function (card) {
+          if (card === exceptCard) return;
+          card.classList.remove('abstract-open');
+          const button = card.querySelector('.abstract-toggle');
+          if (button) button.setAttribute('aria-expanded', 'false');
+        });
+      }
+
+      abstractButtons.forEach(function (button) {
+        const card = button.closest('.publication-card');
+        button.addEventListener('click', function () {
+          const wasOpen = card.classList.contains('abstract-open');
+          closeAbstracts(card);
+          card.classList.toggle('abstract-open', !wasOpen);
+          card.classList.toggle('abstract-dismissed', wasOpen);
+          button.setAttribute('aria-expanded', String(!wasOpen));
+        });
+        card.addEventListener('focusout', function (event) {
+          if (!card.contains(event.relatedTarget)) card.classList.remove('abstract-dismissed');
+        });
+        card.addEventListener('mouseleave', function () {
+          if (!card.classList.contains('abstract-open')) card.classList.remove('abstract-dismissed');
+        });
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key !== 'Escape') return;
+        cards.forEach(function (card) {
+          card.classList.remove('abstract-open');
+          card.classList.add('abstract-dismissed');
+        });
+        abstractButtons.forEach(function (button) {
+          button.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      function updateProgress() {
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        const percent = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+        progress.style.width = Math.min(100, Math.max(0, percent)) + '%';
+      }
+
+      search.addEventListener('input', filterPublications);
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      updateProgress();
+    }());
   </script>
 </body>
 </html>
