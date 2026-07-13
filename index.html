@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Mohamed Omar — Professor of Mathematics at York University. Research in combinatorics, discrete mathematics, and polynomial methods.">
-  <meta name="theme-color" content="#2aa9b7">
+  <meta name="theme-color" content="#00fff0">
   <title>Mohamed Omar — Mathematics at York University</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&amp;display=swap" rel="stylesheet">
   <style>
     :root {
-      --aqua: #2aa9b7;
-      --aqua-bright: #73d1d9;
-      --aqua-deep: #0b6f79;
-      --aqua-dark: #0a4b52;
-      --aqua-wash: #dff3f5;
+      --aqua: #00fff0;
+      --aqua-bright: #9ffff8;
+      --aqua-deep: #006f69;
+      --aqua-dark: #063c39;
+      --aqua-wash: #e5fffd;
       --ink: #102d2b;
       --ink-soft: #47615e;
       --paper: #fbfcf9;
@@ -39,6 +39,8 @@
 
     body {
       margin: 0;
+      max-width: 100%;
+      overflow-x: hidden;
       color: var(--ink);
       background: var(--paper);
       font-family: var(--sans);
@@ -55,8 +57,8 @@
       z-index: -2;
       pointer-events: none;
       background-image:
-        linear-gradient(rgba(11, 111, 121, 0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(11, 111, 121, 0.035) 1px, transparent 1px);
+        linear-gradient(rgba(0, 111, 105, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 111, 105, 0.035) 1px, transparent 1px);
       background-size: 48px 48px;
       mask-image: linear-gradient(to bottom, black 0, transparent 760px);
     }
@@ -195,8 +197,8 @@
       overflow: hidden;
       padding: clamp(62px, 7vw, 96px) 0 76px;
       background:
-        radial-gradient(circle at 84% 16%, rgba(115, 209, 217, 0.42), transparent 25%),
-        linear-gradient(135deg, #f6fbf8 0%, #eefaf6 52%, #dff8f2 100%);
+        radial-gradient(circle at 84% 16%, rgba(159, 255, 248, 0.48), transparent 25%),
+        linear-gradient(135deg, #f8fffe 0%, #effffc 52%, #d9fffb 100%);
       border-bottom: 1px solid var(--line);
     }
 
@@ -207,9 +209,9 @@
       height: 540px;
       right: -260px;
       top: -235px;
-      border: 1px solid rgba(11, 111, 121, 0.18);
+      border: 1px solid rgba(0, 111, 105, 0.18);
       border-radius: 50%;
-      box-shadow: 0 0 0 72px rgba(42, 169, 183, 0.05), 0 0 0 144px rgba(42, 169, 183, 0.035);
+      box-shadow: 0 0 0 72px rgba(0, 255, 240, 0.07), 0 0 0 144px rgba(0, 255, 240, 0.04);
     }
 
     .hero-shell {
@@ -277,7 +279,7 @@
       padding: 7px 12px;
       color: var(--aqua-dark);
       background: rgba(255, 255, 255, 0.72);
-      border: 1px solid rgba(11, 111, 121, 0.22);
+      border: 1px solid rgba(0, 111, 105, 0.22);
       border-radius: 999px;
       font-size: 13px;
       font-weight: 700;
@@ -473,23 +475,37 @@
       bottom: -190px;
       width: 520px;
       height: 520px;
-      border: 1px solid rgba(115, 209, 217, 0.2);
+      border: 1px solid rgba(159, 255, 248, 0.2);
       border-radius: 50%;
-      box-shadow: 0 0 0 72px rgba(115, 209, 217, 0.05), 0 0 0 144px rgba(115, 209, 217, 0.035);
+      box-shadow: 0 0 0 72px rgba(159, 255, 248, 0.05), 0 0 0 144px rgba(159, 255, 248, 0.035);
     }
 
-    .awards-band .content-section { position: relative; z-index: 1; }
+    .awards-band .content-section {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 28px;
+      align-items: center;
+      padding-top: 26px;
+      padding-bottom: 26px;
+    }
     .awards-band .section-kicker { color: var(--aqua-bright); }
 
     .awards-header {
       display: flex;
-      align-items: end;
+      align-items: center;
       justify-content: space-between;
       gap: 30px;
-      margin-bottom: 48px;
+      margin-bottom: 0;
     }
 
-    .awards-header .section-heading { margin: 0; max-width: 620px; }
+    .awards-header .section-heading {
+      max-width: 620px;
+      margin: 0;
+      font-size: clamp(25px, 2.4vw, 31px);
+      line-height: 1.05;
+    }
 
     .award-grid {
       display: grid;
@@ -500,8 +516,8 @@
 
     .award-card {
       position: relative;
-      min-height: 270px;
-      padding: 28px 24px 30px;
+      min-height: 108px;
+      padding: 14px 16px;
       border-right: 1px solid rgba(255, 255, 255, 0.2);
       transition: color 180ms ease, background 180ms ease;
     }
@@ -514,9 +530,9 @@
     }
 
     .award-card h3 {
-      margin: 64px 0 12px;
+      margin: 6px 0 7px;
       font-family: var(--serif);
-      font-size: 21px;
+      font-size: 16px;
       font-weight: 600;
       line-height: 1.13;
     }
@@ -535,7 +551,16 @@
 
     .award-card:hover p { color: rgba(16, 45, 43, 0.74); }
 
-    .archive-section { padding-bottom: 104px; }
+    .archive-section {
+      width: 100%;
+      max-width: none;
+      padding: clamp(74px, 8vw, 108px) max(20px, calc((100% - 1180px) / 2)) 112px;
+      background:
+        radial-gradient(circle at 92% 8%, rgba(0, 255, 240, 0.22), transparent 24%),
+        linear-gradient(180deg, #f5fffe 0%, #ffffff 54%);
+      border-top: 7px solid var(--aqua);
+      border-bottom: 1px solid rgba(0, 111, 105, 0.25);
+    }
 
     .archive-header {
       display: grid;
@@ -545,7 +570,10 @@
       margin-bottom: 40px;
     }
 
-    .archive-header .section-heading { margin-bottom: 0; }
+    .archive-header .section-heading {
+      margin-bottom: 0;
+      font-size: clamp(38px, 4.6vw, 56px);
+    }
 
     .search-wrap {
       position: relative;
@@ -580,7 +608,7 @@
 
     #publication-search:focus {
       border-color: var(--aqua-deep);
-      box-shadow: 0 0 0 4px rgba(42, 169, 183, 0.2);
+      box-shadow: 0 0 0 4px rgba(0, 255, 240, 0.22);
     }
 
     .publication-list {
@@ -593,7 +621,7 @@
     .publication-card {
       position: relative;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 42px;
+      grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr) 42px;
       gap: 16px;
       align-items: start;
       padding: 27px 14px 29px 0;
@@ -607,6 +635,11 @@
     }
 
     .publication-card[hidden] { display: none; }
+
+    .publication-card > div:first-child {
+      grid-column: 1;
+      grid-row: 1;
+    }
 
     .pub-status {
       display: inline-block;
@@ -660,25 +693,24 @@
     .abstract-toggle:focus-visible { color: var(--ink); }
 
     .pub-abstract {
-      position: absolute;
-      top: calc(100% - 10px);
-      left: 0;
-      right: 52px;
-      z-index: 30;
-      max-width: 920px;
+      position: static;
+      grid-column: 2;
+      grid-row: 1;
+      align-self: center;
+      max-width: none;
       margin: 0;
       padding: 15px 18px !important;
-      color: #385f64 !important;
-      background: rgba(223, 243, 245, 0.97);
-      border: 1px solid rgba(11, 111, 121, 0.22);
+      color: #315e5a !important;
+      background: rgba(229, 255, 253, 0.98);
+      border: 1px solid rgba(0, 111, 105, 0.22);
       border-radius: 12px;
-      box-shadow: 0 14px 32px rgba(10, 75, 82, 0.13);
+      box-shadow: none;
       font-family: var(--serif);
       font-size: 13px !important;
       line-height: 1.6 !important;
       opacity: 0;
       pointer-events: none;
-      transform: translateY(-5px);
+      transform: translateX(5px);
       transition: opacity 140ms ease, transform 140ms ease;
     }
 
@@ -687,7 +719,7 @@
     .publication-card.abstract-open .pub-abstract {
       opacity: 1;
       pointer-events: auto;
-      transform: translateY(0);
+      transform: translateX(0);
     }
 
     .publication-card.abstract-dismissed .pub-abstract {
@@ -696,6 +728,8 @@
     }
 
     .pub-arrow {
+      grid-column: 3;
+      grid-row: 1;
       width: 34px;
       height: 34px;
       display: grid;
@@ -750,7 +784,7 @@
       margin: 0;
       padding: 0;
       list-style: none;
-      border-top: 1px solid rgba(11, 111, 121, 0.28);
+      border-top: 1px solid rgba(0, 111, 105, 0.28);
     }
 
     .work-card {
@@ -758,7 +792,7 @@
       grid-template-columns: 110px minmax(0, 1fr);
       gap: 26px;
       padding: 28px 0;
-      border-bottom: 1px solid rgba(11, 111, 121, 0.28);
+      border-bottom: 1px solid rgba(0, 111, 105, 0.28);
     }
 
     .work-card .year {
@@ -849,13 +883,17 @@
 
     @media (max-width: 980px) {
       .site-nav { display: none; }
-      .hero-shell,
       .about-grid,
       .archive-header,
       .work-layout { grid-template-columns: 1fr; }
-      .hero-shell { gap: 68px; }
-      .portrait-wrap { justify-self: start; width: min(82vw, 440px); margin-left: 18px; }
+      .hero-shell {
+        grid-template-columns: minmax(0, 1fr) minmax(220px, 0.55fr);
+        gap: 36px;
+      }
+      .portrait-wrap { justify-self: end; width: min(100%, 250px); margin-left: 0; }
       .about-grid { gap: 44px; }
+      .awards-band .content-section { display: block; padding-top: 32px; padding-bottom: 32px; }
+      .awards-header { margin-bottom: 16px; }
       .award-grid { grid-template-columns: 1fr 1fr; }
       .award-card:nth-child(2) { border-right: 0; }
       .award-card:nth-child(-n+2) { border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
@@ -868,25 +906,58 @@
       :root { --page: min(100% - 28px, 1180px); }
       .nav-shell { gap: 12px; min-height: 66px; }
       .brand span:last-child { display: none; }
-      .header-cv { margin-left: auto; }
       .hero { padding: 62px 0 74px; }
-      h1 { font-size: clamp(46px, 15vw, 66px); }
-      .hero-title { font-size: 18px; }
-      .portrait-wrap { width: min(calc(100% - 18px), 330px); }
+      .hero-shell { grid-template-columns: minmax(0, 1fr) 116px; gap: 16px; align-items: start; }
+      h1 { font-size: clamp(40px, 12vw, 56px); }
+      .hero-title { font-size: 15px; }
+      .portrait-wrap { width: 116px; }
+      .portrait-wrap::before { inset: -8px 8px 10px -8px; border-radius: 18px 18px 18px 5px; }
+      .portrait-card { border-width: 4px; border-radius: 17px 17px 17px 5px; }
+      .portrait-card img { border-radius: 12px 12px 6px 2px; }
+      .portrait-card figcaption { padding: 8px 4px 4px; font-size: 8px; }
       .portrait-card figcaption { flex-direction: column; gap: 2px; }
       .content-section { padding: 76px 0; }
+      .archive-section {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      .archive-header,
+      .publication-list,
+      .publication-card { width: 100%; max-width: 100%; }
+      .publication-card > div:first-child,
+      .publication-card h3,
+      .publication-card p,
+      .pub-abstract { min-width: 0; overflow-wrap: anywhere; }
       .research-note { padding: 27px; }
       .research-note p { font-size: 18px; }
       .awards-header { align-items: start; flex-direction: column; }
       .award-grid { grid-template-columns: 1fr; }
-      .award-card { min-height: 220px; border-right: 0; border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
+      .award-card { min-height: 0; border-right: 0; border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
       .award-card:last-child { border-bottom: 0; }
       #publication-search { height: 54px; }
       .publication-card { grid-template-columns: minmax(0, 1fr); gap: 12px; padding-right: 0; }
       .pub-arrow { display: none; }
       .publication-card:hover { padding-left: 0; }
       .publication-card h3 { font-size: 18px; }
-      .pub-abstract { right: 0; }
+      .pub-abstract {
+        grid-column: 1;
+        grid-row: auto;
+        max-height: 0;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        overflow: hidden;
+        border-width: 0;
+      }
+      .publication-card:hover .pub-abstract,
+      .publication-card:focus-within .pub-abstract,
+      .publication-card.abstract-open .pub-abstract {
+        max-height: 240px;
+        padding-top: 15px !important;
+        padding-bottom: 15px !important;
+        border-width: 1px;
+      }
       .work-card,
       .collection-panel .work-card { grid-template-columns: 1fr; gap: 8px; }
       .collection-panel { padding: 28px 22px; }
@@ -945,7 +1016,6 @@
         <a href="#articles">Articles</a>
         <a href="#books">Books &amp; Theses</a>
       </nav>
-      <a class="header-cv" href="https://profomarmath.github.io/MohamedOmarCV-Oct-2025-Website.pdf" target="_blank" rel="noopener">CV ↗</a>
     </div>
   </header>
 
@@ -998,7 +1068,7 @@
         <div class="awards-header">
           <div>
             <p class="section-kicker">Recognition</p>
-            <h2 class="section-heading">Recent Awards<br>and Grants</h2>
+            <h2 class="section-heading">Recent Awards and Grants</h2>
           </div>
         </div>
 
